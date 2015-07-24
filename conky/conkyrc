@@ -1,0 +1,134 @@
+# conky config
+# Inspired by https://github.com/zagortenay333/Harmattan
+# Tweaked by MR
+
+# Basic settings.
+background no
+update_interval 5
+double_buffer yes
+no_buffers yes
+imlib_cache_size 10
+
+# Window specifications.
+gap_x 0
+gap_y 0
+minimum_size 268 620
+maximum_width 268
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+border_inner_margin 0
+border_outer_margin 0
+alignment middle_left
+#own_window_argb_visual yes
+#own_window_argb_value 0
+
+# Graphics settings.
+draw_shades no
+default_shade_color AAAAAA
+draw_outline no
+default_outline_color AAAAAA
+draw_borders no
+draw_graph_borders no
+default_graph_size 26 80
+show_graph_scale no
+show_graph_range no
+
+# Text settings.
+use_xft yes
+xftalpha 1.0
+xftfont Droid Sans:size=8
+text_buffer_size 256
+override_utf8_locale yes
+
+# Useful shortenings.
+short_units yes
+pad_percents 2
+top_name_width 7
+
+# Color scheme.
+default_color FFFFFF
+color1 FFFFFF
+color2 FFFFFF
+color3 FFFFFF
+color4 FFFFFF
+color5 DCDCDC
+color6 FFFFFF
+color7 FFFFFF
+color8 FFFFFF
+
+# Contents.
+TEXT
+# Background image + download weather data.
+${image ~/.martin/conky/images/bg.png -p 20,30 -s 228x562}
+
+# Clock + calendar.
+${voffset 8}${font Droid Sans Mono :size=22}${alignc}${color2}${time %H:%M}${font}${color}
+${voffset 4}${font Droid Sans :size=11}${alignc}${color6}${time %A, %B %d, %Y}${font}${color}
+
+# The "conditions" section of the conky.
+${goto 36}${voffset -7}${font Droid Sans :size=36}${color1}${execi 300 ~/.martin/conky/scripts/weather.sh -current-temp}${font}${color}
+${voffset 16}${alignc}${font Droid Sans :size=11}${color1}${execi 300 ~/.martin/conky/scripts/weather.sh -current-city-status}${font}${color}
+${color1}${alignr 52}${voffset -75}${execi 300 ~/.martin/conky/scripts/weather.sh -current-pressure}${color}
+${color1}${alignr 52}${voffset 7}${execi 300 ~/.martin/conky/scripts/weather.sh -current-humidity}${color}
+${color1}${alignr 52}${voffset 7}${execi 300 ~/.martin/conky/scripts/weather.sh -current-wind}${color}
+
+# The days of the forecast.
+${color3}${voffset 22}${alignc 73}${execi 300 ~/.martin/conky/scripts/weather.sh -forecast-dayname 1}${color}
+${color3}${voffset -13}${alignc}${execi 300 ~/.martin/conky/scripts/weather.sh -forecast-dayname 2}${color}
+${color3}${voffset -13}${alignc -73}${execi 300 ~/.martin/conky/scripts/weather.sh -forecast-dayname 3}${color}
+
+# The temperatures of the forecast.
+${color2}${voffset 40}${alignc 73}${execi 300 ~/.martin/conky/scripts/weather.sh -forecast-temps 1}${color}
+${color2}${voffset -13}${alignc}${execi 300 ~/.martin/conky/scripts/weather.sh -forecast-temps 2}${color}
+${color2}${voffset -13}${alignc -73}${execi 300 ~/.martin/conky/scripts/weather.sh -forecast-temps 3}${color}
+
+# The network section.
+${if_existing /proc/net/route enp3s0}
+${voffset -12}${goto 40}${color5}Up: ${color2}${upspeed enp3s0}${color5}${goto 150}Down: ${color2}${downspeed enp3s0}
+${voffset 10}${goto 40}${upspeedgraph enp3s0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph enp3s0 26,80 FFFFFF FFFFFF}
+${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup enp3s0}${color5}${goto 150}Received: ${color2}${totaldown enp3s0}
+${else}
+${voffset -12}${goto 40}${color5}Network disconnected${color}
+${image ~/.martin/conky/images/offline.png -p 44,284 -s 16x16}
+${endif}
+
+# Cpu, memory, uptime, and load graph.
+${voffset -11}${goto 40}${color2}Cpu:${color}
+${voffset 4}${goto 40}${color2}Mem:${color}
+${voffset 4}${goto 40}${color2}Uptime:${color}
+${voffset -47}${alignr 39}${color2}${cpu cpu0}%${color}
+${voffset 4}${alignr 39}${color2}${memperc}%${color}
+${voffset 4}${alignr 39}${color2}${uptime_short}${color}
+${voffset -47}${alignc}${color2}${cpubar 5,36}${color}
+${voffset 4}${alignc}${color2}${membar 5,36}${color}
+${voffset 29}${goto 40}${loadgraph 26,190 FFFFFF FFFFFF -l}
+
+# The processes section.
+${voffset 14}${goto 40}${color2}${top_mem name 1}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 2}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 3}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 4}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 5}${color}
+${voffset -81}${alignc}${color5}${top_mem mem 1}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 2}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 3}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 4}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 5}%${color}
+${voffset -81}${alignr 39}${color6}${top_mem mem_res 1}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 2}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 3}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 4}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 5}${color}
+${voffset -104}${goto 40}${color1}Proc${color}
+${voffset -13}${alignc}${color1}Mem%${color}
+${voffset -13}${alignr 39}${color1}Mem${color}
+
+# Various images including the icons of the forecast.
+${image ~/.martin/conky/images/pressure.png -p 224,95 -s 16x16}
+${image ~/.martin/conky/images/humidity.png -p 224,115 -s 16x16}
+${image ~/.martin/conky/images/wind-2.png -p 224,136 -s 16x16}
+${image ~/.martin/conky/cache/weather-1.png -p 45,207 -s 32x32}
+${image ~/.martin/conky/cache/weather-2.png -p 119,207 -s 32x32}
+${image ~/.martin/conky/cache/weather-3.png -p 191,207 -s 32x32}

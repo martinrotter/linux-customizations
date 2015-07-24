@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+		<rss version="2.0" xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+			<channel>
+		
+<title>Yahoo! Weather - Olomouc, CZ</title>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Olomouc__CZ/*http://weather.yahoo.com/forecast/EZXX0038_c.html</link>
+<description>Yahoo! Weather for Olomouc, CZ</description>
+<language>en-us</language>
+<lastBuildDate>Fri, 24 Jul 2015 7:00 pm CEST</lastBuildDate>
+<ttl>60</ttl>
+<yweather:location city="Olomouc" region=""   country="Czech Republic"/>
+<yweather:units temperature="C" distance="km" pressure="mb" speed="km/h"/>
+<yweather:wind chill="23"   direction="120"   speed="17.7" />
+<yweather:atmosphere humidity="80"  visibility="8"  pressure="1009.6"  rising="1" />
+<yweather:astronomy sunrise="5:10 am"   sunset="8:40 pm"/>
+<image>
+<title>Yahoo! Weather</title>
+<width>142</width>
+<height>18</height>
+<link>http://weather.yahoo.com</link>
+<url>http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif</url>
+</image>
+<item>
+<title>Conditions for Olomouc, CZ at 7:00 pm CEST</title>
+<geo:lat>49.59</geo:lat>
+<geo:long>17.25</geo:long>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Olomouc__CZ/*http://weather.yahoo.com/forecast/EZXX0038_c.html</link>
+<pubDate>Fri, 24 Jul 2015 7:00 pm CEST</pubDate>
+<yweather:condition  text="Thunderstorm"  code="4"  temp="23"  date="Fri, 24 Jul 2015 7:00 pm CEST" />
+<description><![CDATA[
+<img src="http://l.yimg.com/a/i/us/we/52/4.gif"/><br />
+<b>Current Conditions:</b><br />
+Thunderstorm, 23 C<BR />
+<BR /><b>Forecast:</b><BR />
+Fri - Thunderstorms Late. High: 32 Low: 20<br />
+Sat - PM Thunderstorms. High: 32 Low: 13<br />
+Sun - Mostly Sunny. High: 25 Low: 13<br />
+Mon - AM Clouds/PM Sun. High: 27 Low: 13<br />
+Tue - Mostly Sunny. High: 27 Low: 12<br />
+<br />
+<a href="http://us.rd.yahoo.com/dailynews/rss/weather/Olomouc__CZ/*http://weather.yahoo.com/forecast/EZXX0038_c.html">Full Forecast at Yahoo! Weather</a><BR/><BR/>
+(provided by <a href="http://www.weather.com" >The Weather Channel</a>)<br/>
+]]></description>
+<yweather:forecast day="Fri" date="24 Jul 2015" low="20" high="32" text="Thunderstorms Late" code="4" />
+<yweather:forecast day="Sat" date="25 Jul 2015" low="13" high="32" text="PM Thunderstorms" code="38" />
+<yweather:forecast day="Sun" date="26 Jul 2015" low="13" high="25" text="Mostly Sunny" code="34" />
+<yweather:forecast day="Mon" date="27 Jul 2015" low="13" high="27" text="AM Clouds/PM Sun" code="30" />
+<yweather:forecast day="Tue" date="28 Jul 2015" low="12" high="27" text="Mostly Sunny" code="34" />
+<guid isPermaLink="false">EZXX0038_2015_07_28_7_00_CEST</guid>
+</item>
+</channel>
+</rss>
+
+<!-- fan1615.sports.bf1.yahoo.com Fri Jul 24 10:45:47 PDT 2015 -->
