@@ -91,7 +91,8 @@ ${voffset 10}${goto 40}${upspeedgraph enp3s0 26,80 FFFFFF FFFFFF}${goto 150}${do
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup enp3s0}${color5}${goto 150}Received: ${color2}${totaldown enp3s0}
 ${else}
 ${voffset -12}${goto 40}${color5}Network disconnected${color}
-${image ~/.martin/conky/images/offline.png -p 44,284 -s 16x16}
+${image ~/.martin/conky/images/offline.png -p 44,300 -s 16x16}
+${voffset 45}
 ${endif}
 
 # Cpu, memory, uptime, and load graph.
