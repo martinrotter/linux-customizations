@@ -38,7 +38,7 @@ if [[ !(-r $LOCAL_XML_FILE) || $(($CURRENT_TIME_SECONDS - $(date -r $LOCAL_XML_F
 
   if [[ $? != $EXIT_SUCCESS ]]; then
     # File was not downloaded, this is big problem.
-    echo problem
+    echo "-"
     exit $EXIT_FAILURE
   else
     # File was updated and downloaded. Now refresh icons and make further actions.

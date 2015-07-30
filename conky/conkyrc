@@ -132,11 +132,11 @@ ${voffset 4}${goto 40}${color2}${top_mem name 2}${color}
 ${voffset 4}${goto 40}${color2}${top_mem name 3}${color}
 ${voffset 4}${goto 40}${color2}${top_mem name 4}${color}
 ${voffset 4}${goto 40}${color2}${top_mem name 5}${color}
-${voffset -81}${alignc}${color5}${top_mem mem 1}%${color}
-${voffset 4}${alignc}${color5}${top_mem mem 2}%${color}
-${voffset 4}${alignc}${color5}${top_mem mem 3}%${color}
-${voffset 4}${alignc}${color5}${top_mem mem 4}%${color}
-${voffset 4}${alignc}${color5}${top_mem mem 5}%${color}
+${voffset -81}${alignc}${color5}${top_mem mem 1}${color}
+${voffset 4}${alignc}${color5}${top_mem mem 2}${color}
+${voffset 4}${alignc}${color5}${top_mem mem 3}${color}
+${voffset 4}${alignc}${color5}${top_mem mem 4}${color}
+${voffset 4}${alignc}${color5}${top_mem mem 5}${color}
 ${voffset -81}${alignr 39}${color6}${top_mem mem_res 1}${color}
 ${voffset 4}${alignr 39}${color6}${top_mem mem_res 2}${color}
 ${voffset 4}${alignr 39}${color6}${top_mem mem_res 3}${color}
