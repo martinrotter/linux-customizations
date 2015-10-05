@@ -49,7 +49,6 @@ if [[ !(-r $LOCAL_XML_FILE) || $(($CURRENT_TIME_SECONDS - $(date -r $LOCAL_XML_F
 fi
 
 # All artifacts are downloaded, return requested data.
-
 case $1 in
   # Get current temperature.
   -current-temp)
