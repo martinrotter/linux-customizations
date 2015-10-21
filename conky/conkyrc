@@ -60,8 +60,8 @@ color8 FFFFFF
 
 # Contents.
 TEXT
-# Background image + download weather data.
-${image ~/.martin/conky/images/bg.png -p 20,30 -s 228x678}
+# Background image.
+${image ~/.martin/conky/images/bg.png -p 20,30 -s 228x720}
 
 # Clock + calendar.
 ${voffset 8}${font Droid Sans Mono :size=22}${alignc}${color2}${time %H:%M}${font}${color}
@@ -142,6 +142,14 @@ ${voffset 4}${alignr 39}${color6}${top_mem mem_res 2}${color}
 ${voffset 4}${alignr 39}${color6}${top_mem mem_res 3}${color}
 ${voffset 4}${alignr 39}${color6}${top_mem mem_res 4}${color}
 ${voffset 4}${alignr 39}${color6}${top_mem mem_res 5}${color}
+
+# Packages info.
+${voffset -3}${goto 40}${color1}Package information${color}
+${voffset 4}${goto 40}${color2}AUR updates${color}
+${voffset 4}${goto 40}${color2}REPO updates${color}
+${voffset -30}${alignc}${color5}${execi 300 ~/.martin/conky/scripts/packages.sh -aur-updates-count}${color}
+${voffset 4}${alignc}${color5}${execi 300 ~/.martin/conky/scripts/packages.sh -abs-updates-count}${color}
+
 
 # Various images including the icons of the forecast.
 ${image ~/.martin/conky/images/pressure.png -p 224,95 -s 16x16}
