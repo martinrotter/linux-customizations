@@ -118,6 +118,10 @@ setopt pushdminus
 # You can use autocompletion after the dash.
 # This proves very handy if you are using the autocompletion menu.
 
+# Load misc scripts.
+source "$HOME/.martin/zsh/scripts/screenshots.sh"
+
+# Prints out files not owned by any package.
 pac-unowned() {
 	#!/bin/zsh
 
