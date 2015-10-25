@@ -111,16 +111,16 @@ ${voffset -9}${goto 40}${color1}Name${color}
 ${voffset -13}${alignc}${color1}Used space${color}
 ${voffset -13}${alignr 39}${color1}Filesystem${color}
 ${voffset 4}${goto 40}${color1}Root${color}
-${voffset 4}${goto 40}${color1}Windows${color}
 ${voffset 4}${goto 40}${color1}Data${color}
-${voffset 4}${goto 40}${color1}Temp${color}
+${voffset 4}${goto 40}${color1}Temp 1${color}
+${voffset 4}${goto 40}${color1}Temp 2${color}
 ${voffset -64}${alignc}${color5}${fs_used /} (${fs_used_perc /}%)${color}
-${voffset 4}${alignc}${color5}${fs_used /mnt/windows} (${fs_used_perc /mnt/windows}%)${color}
 ${voffset 4}${alignc}${color5}${fs_used /mnt/data} (${fs_used_perc /mnt/data}%)${color}
+${voffset 4}${alignc}${color5}${fs_used /tmp} (${fs_used_perc /tmp}%)${color}
 ${voffset 4}${alignc}${color5}${fs_used /mnt/tmpfs} (${fs_used_perc /mnt/tmpfs}%)${color}
 ${voffset -64}${alignr 39}${color6}${fs_type /}${color}
-${voffset 4}${alignr 39}${color6}${fs_type /mnt/windows}${color}
 ${voffset 4}${alignr 39}${color6}${fs_type /mnt/data}${color}
+${voffset 4}${alignr 39}${color6}${fs_type /tmp}${color}
 ${voffset 4}${alignr 39}${color6}${fs_type /mnt/tmpfs}${color}
 
 # The processes section.
