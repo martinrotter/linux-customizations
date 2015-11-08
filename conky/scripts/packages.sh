@@ -1,7 +1,6 @@
 #!/bin/bash
-# Simle packages script which does following.
+# Simle packages script.
 # Written by MR.
-#
 
 # System constants.
 EXIT_SUCCESS=0

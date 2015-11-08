@@ -112,16 +112,16 @@ ${voffset -13}${alignc}${color1}Used space${color}
 ${voffset -13}${alignr 39}${color1}Filesystem${color}
 ${voffset 4}${goto 40}${color1}Root${color}
 ${voffset 4}${goto 40}${color1}Data${color}
-${voffset 4}${goto 40}${color1}Temp 1${color}
-${voffset 4}${goto 40}${color1}Temp 2${color}
+${voffset 4}${goto 40}${color1}Temp${color}
+${voffset 4}${goto 40}${color1}Logs${color}
 ${voffset -64}${alignc}${color5}${fs_used /} (${fs_used_perc /}%)${color}
 ${voffset 4}${alignc}${color5}${fs_used /mnt/data} (${fs_used_perc /mnt/data}%)${color}
 ${voffset 4}${alignc}${color5}${fs_used /tmp} (${fs_used_perc /tmp}%)${color}
-${voffset 4}${alignc}${color5}${fs_used /mnt/tmpfs} (${fs_used_perc /mnt/tmpfs}%)${color}
+${voffset 4}${alignc}${color5}${execi 3000 ~/.martin/conky/scripts/other.sh -log-size}${color}
 ${voffset -64}${alignr 39}${color6}${fs_type /}${color}
 ${voffset 4}${alignr 39}${color6}${fs_type /mnt/data}${color}
 ${voffset 4}${alignr 39}${color6}${fs_type /tmp}${color}
-${voffset 4}${alignr 39}${color6}${fs_type /mnt/tmpfs}${color}
+${voffset 4}${alignr 39}${color6}${fs_type /}${color}
 
 # The processes section.
 ${voffset -3}${goto 40}${color1}Proc${color}
@@ -147,9 +147,8 @@ ${voffset 4}${alignr 39}${color6}${top_mem mem_res 5}${color}
 ${voffset -3}${goto 40}${color1}Package information${color}
 ${voffset 4}${goto 40}${color2}AUR updates${color}
 ${voffset 4}${goto 40}${color2}REPO updates${color}
-${voffset -30}${alignc}${color5}${execi 300 ~/.martin/conky/scripts/packages.sh -aur-updates-count}${color}
-${voffset 4}${alignc}${color5}${execi 300 ~/.martin/conky/scripts/packages.sh -abs-updates-count}${color}
-
+${voffset -30}${alignc}${color5}${execi 3000 ~/.martin/conky/scripts/packages.sh -aur-updates-count}${color}
+${voffset 4}${alignc}${color5}${execi 3000 ~/.martin/conky/scripts/packages.sh -abs-updates-count}${color}
 
 # Various images including the icons of the forecast.
 ${image ~/.martin/conky/images/pressure.png -p 224,95 -s 16x16}
