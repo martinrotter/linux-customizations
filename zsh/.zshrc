@@ -56,8 +56,8 @@ alias pac-orp='sudo pacman -Qtdq'      # Lists orphaned packages
 alias pac-which='pacman -Qo'		       # Checks which package holds file
 
 # Aura aliases.
-alias aur-ins='sudo aura -Ax'
-alias aur-upg='sudo aura -Akxyu'
+alias aur-ins='sudo aura -Ax --hotedit'
+alias aur-upg='sudo aura -Akxyu --hotedit'
 
 # Autoloads.
 autoload -U compinit promptinit colors
