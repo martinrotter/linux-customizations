@@ -2,6 +2,9 @@
 ## skunkos .zshrc <rotter.martinos(at)gmail.com>
 ##
 
+# Set echo-cancellation on pulseaudio.
+pactl load-module module-echo-cancel
+
 # Exports.
 export EDITOR="/usr/bin/nano"
 export GREP_COLOR="1;33"
@@ -29,6 +32,7 @@ HISTSIZE=2000
 SAVEHIST=2000
 
 # Aliases.
+alias weather='curl http://wttr.in/Olomouc'
 alias top='top -o %MEM'
 alias more='less'
 alias df='df -h'
@@ -38,6 +42,7 @@ alias ls='ls --color=auto --human-readable --group-directories-first --classify 
 alias valgrind-profiler='valgrind --tool=callgrind'
 alias ssh-start='eval $(ssh-agent) && ssh-add'
 alias virtualbox-run='sudo modprobe vboxdrv vboxnetadp vboxnetflt vboxpci'
+alias screenshot='echo "Waiting 2 seconds..." && sleep 2 && import -window root ./screenshot.png'
 
 # Pacman aliases.
 alias pac-upg='sudo pacman -Syu'       # Synchronize with repositories before upgrading
