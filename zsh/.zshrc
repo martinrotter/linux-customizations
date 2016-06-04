@@ -5,6 +5,10 @@
 # Set echo-cancellation on pulseaudio.
 pactl load-module module-echo-cancel
 
+# Turn off screen blanking.
+xset s 0 0
+xset -dpms
+
 # Exports.
 export EDITOR="/usr/bin/nano"
 export GREP_COLOR="1;33"
@@ -56,6 +60,7 @@ alias pac-sea='pacman -Ss'             # Search for package(s) in the repositori
 alias pac-inl='pacman -Qi'             # Display information about a given package in the local database
 alias pac-num="sudo pacman -Q|wc -l"   # Prints number of installed packages
 alias pac-lst='sudo pacman -Q'         # Lists all installed packages
+alias pac-lst-size="expac -H M '%m\t%n' | sort -h"			# List all packages with size
 alias pac-clr='sudo pacman -Scc'       # Clears entire cache
 alias pac-orp='sudo pacman -Qtdq'      # Lists orphaned packages
 alias pac-which='pacman -Qo'		       # Checks which package holds file
