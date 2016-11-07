@@ -2,21 +2,21 @@
 ## skunkos .zshrc <rotter.martinos(at)gmail.com>
 ##
 
-# Set echo-cancellation on pulseaudio.
-pactl load-module module-echo-cancel
-
 # Turn off screen blanking.
 xset s 0 0
 xset -dpms
 
 # Exports.
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+export WINEARCH=win32
 export EDITOR="/usr/bin/nano"
 export GREP_COLOR="1;33"
 export LESS="-R"
 export LS_COLORS="rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:";
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
+export SAL_USE_VCLPLUGIN="gtk"        # For LibreOffice gui.
 
-PATH=$PATH:/opt/alkinea:/opt/sublime_text_3
+PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin/:/opt/alkinea:/opt/sublime_text_3
 
 # Shortcuts.
 bindkey ';5D' emacs-backward-word
@@ -62,7 +62,7 @@ alias pac-num="sudo pacman -Q|wc -l"   # Prints number of installed packages
 alias pac-lst='sudo pacman -Q'         # Lists all installed packages
 alias pac-lst-size="expac -H M '%m\t%n' | sort -h"			# List all packages with size
 alias pac-clr='sudo pacman -Scc'       # Clears entire cache
-alias pac-orp='sudo pacman -Qtdq'      # Lists orphaned packages
+alias pac-orp='sudo pacman -Qt'        # Lists orphaned packages
 alias pac-which='pacman -Qo'		       # Checks which package holds file
 
 # Aura aliases.
@@ -146,3 +146,6 @@ pac-unowned() {
 	find /etc /opt /usr ! -name lost+found \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
 	comm -23 "$fs" "$db"
 }
+
+# added by travis gem
+[ -f /home/martin/.travis/travis.sh ] && source /home/martin/.travis/travis.sh
