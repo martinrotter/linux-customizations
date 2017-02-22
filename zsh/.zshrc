@@ -6,6 +6,14 @@
 xset s 0 0
 xset -dpms
 
+# Terminix fix.
+if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
+
+# Load powerless.
+source ~/.martin/powerless/powerless.zsh
+
 # Exports.
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export WINEARCH=win32
@@ -65,23 +73,23 @@ alias pac-clr='sudo pacman -Scc'       # Clears entire cache
 alias pac-orp='sudo pacman -Qt'        # Lists orphaned packages
 alias pac-which='pacman -Qo'		       # Checks which package holds file
 
-# Aura aliases.
-alias aur-ins='sudo aura -Ax --hotedit'
-alias aur-upg='sudo aura -Akxyu --hotedit'
+# PACAUR aliases.
+alias aur-ins='pacaur -S'
+alias aur-upg='pacaur -Syu'
+alias aur-upg-devel='pacaur -Syua --devel --needed'
+
+# Functions.
+play-youtube-dl() {
+  youtube-dl $1 -o -| vlc -
+}
 
 # Autoloads.
-autoload -U compinit promptinit colors
+autoload -U compinit
 compinit -d ${HOME}/.martin/zsh/.completion_dump
-promptinit
-colors
+
 
 # Enable expansion in prompt.
-setopt prompt_subst
 setopt autocd
-
-# Set prompt theme.
-source ${HOME}/.martin/zsh/.prompt
-setprompt
 
 # Allow "menu" arrows navigation when completing (3 x TAB).
 zstyle ':completion:*' menu select
@@ -133,19 +141,16 @@ source "$HOME/.martin/zsh/scripts/screenshots.sh"
 
 # Prints out files not owned by any package.
 pac-unowned() {
-	#!/bin/zsh
+  #!/bin/zsh
 
-	tmp=${TMPDIR-/tmp}/pacman-disowned-$UID-$$
-	db=$tmp/db
-	fs=$tmp/fs
+  tmp=${TMPDIR-/tmp}/pacman-disowned-$UID-$$
+  db=$tmp/db
+  fs=$tmp/fs
 
-	mkdir "$tmp"
-	trap 'rm -rf "$tmp"' EXIT
+  mkdir "$tmp"
+  trap 'rm -rf "$tmp"' EXIT
 
-	pacman -Qlq | sort -u > "$db"
-	find /etc /opt /usr ! -name lost+found \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
-	comm -23 "$fs" "$db"
+  pacman -Qlq | sort -u > "$db"
+  find /etc /opt /usr ! -name lost+found \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
+  comm -23 "$fs" "$db"
 }
-
-# added by travis gem
-[ -f /home/martin/.travis/travis.sh ] && source /home/martin/.travis/travis.sh

@@ -25,6 +25,6 @@ setprompt() {
   fi
   
   # Set the prompt.
-  PS1=$'${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_YELLOW}%~${PR_GREEN} => %?${PR_CYAN}] \n${PR_USER_OP} '
+  PS1=$'${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_YELLOW}%~${PR_GREEN} ➞ %?${PR_CYAN}] \n${PR_USER_OP} '
   PS2=$'%_>'
 }
