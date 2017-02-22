@@ -87,7 +87,6 @@ play-youtube-dl() {
 autoload -U compinit
 compinit -d ${HOME}/.martin/zsh/.completion_dump
 
-
 # Enable expansion in prompt.
 setopt autocd
 
