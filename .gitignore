@@ -1,1 +1,5 @@
 conky/cache/*.*
+/powerless
+/zsh/.completion_dump
+/zsh/.dirstack
+/zsh/.zsh_history

@@ -3,8 +3,11 @@
 ##
 
 # Turn off screen blanking.
-xset s 0 0
-xset -dpms
+
+if [[ "$(uname -o)" != "Cygwin" ]]; then
+  xset s 0 0
+  xset -dpms
+fi
 
 # Terminix fix.
 if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
