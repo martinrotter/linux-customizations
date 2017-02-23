@@ -2,9 +2,8 @@
 ## skunkos .zshrc <rotter.martinos(at)gmail.com>
 ##
 
-# Turn off screen blanking.
-
 if [[ "$(uname -o)" != "Cygwin" ]]; then
+  # Turn off screen blanking on Linux.
   xset s 0 0
   xset -dpms
 fi
@@ -13,9 +12,6 @@ fi
 if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
-
-# Load powerless.
-source ~/.martin/powerless/powerless.zsh
 
 # Exports.
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
@@ -27,7 +23,11 @@ export LS_COLORS="rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 export SAL_USE_VCLPLUGIN="gtk"        # For LibreOffice gui.
 
-PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin/:/opt/alkinea:/opt/sublime_text_3
+PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin/
+
+# Load powerless.
+source ~/.martin/powerless/powerless.zsh
+source ~/.martin/powerless/utilities.zsh
 
 # Shortcuts.
 bindkey ';5D' emacs-backward-word
@@ -86,60 +86,24 @@ play-youtube-dl() {
   youtube-dl $1 -o -| vlc -
 }
 
-# Autoloads.
-autoload -U compinit
-compinit -d ${HOME}/.martin/zsh/.completion_dump
-
-# Enable expansion in prompt.
-setopt autocd
-
-# Allow "menu" arrows navigation when completing (3 x TAB).
-zstyle ':completion:*' menu select
-zstyle ':completion:*' completer _complete _list _oldlist _expand _ignored _match _correct _approximate _prefix
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion::complete:*' cache-path ${HOME}/.martin/zsh/cache
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-
-# Complete aliases.
-setopt completealiases
-
-# Disable duplicate history entries.
-setopt HIST_IGNORE_DUPS
-
-# No beeping.
-setopt NO_beep
-
 # Dirstack.
 DIRSTACKFILE="$HOME/.martin/zsh/.dirstack"
+
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
   dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
   [[ -d $dirstack[1] ]] && cd $dirstack[1]
 fi
+
 chpwd() {
   print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
 
 DIRSTACKSIZE=20
 
-setopt autopushd pushdsilent pushdtohome
-
-# Remove duplicate entries
-setopt pushdignoredups
-
-# This reverts the +/- operators.
-setopt pushdminus
-
 # Now you can use dirs -v to print the dirstack.
 # Use cd -<NUM> to go back to a visited folder.
 # You can use autocompletion after the dash.
 # This proves very handy if you are using the autocompletion menu.
-
-# Load misc scripts.
-source "$HOME/.martin/zsh/scripts/screenshots.sh"
 
 # Prints out files not owned by any package.
 pac-unowned() {
