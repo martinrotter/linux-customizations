@@ -29,14 +29,6 @@ PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin/
 source ~/.martin/powerless/powerless.zsh
 source ~/.martin/powerless/utilities.zsh
 
-# Shortcuts.
-bindkey ';5D' emacs-backward-word
-bindkey ';5C' emacs-forward-word
-bindkey '^[[3~' delete-char
-bindkey '^[3;5~' delete-char
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-
 # History.
 HISTFILE=${HOME}/.martin/zsh/.zsh_history
 
