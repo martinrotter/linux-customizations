@@ -50,6 +50,7 @@ alias valgrind-profiler='valgrind --tool=callgrind'
 alias ssh-start='eval $(ssh-agent) && ssh-add'
 alias virtualbox-run='sudo modprobe vboxdrv vboxnetadp vboxnetflt vboxpci'
 alias screenshot='echo "Waiting 2 seconds..." && sleep 2 && import -window root ./screenshot.png'
+alias mount-encfs='encfs $HOME/Dropbox/martin/ $HOME/.martin/encrypted/'
 
 # Pacman aliases.
 alias pac-upg='sudo pacman -Syu'       # Synchronize with repositories before upgrading
