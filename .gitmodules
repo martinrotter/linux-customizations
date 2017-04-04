@@ -1,0 +1,3 @@
+[submodule "powerless"]
+	path = powerless
+	url = https://github.com/martinrotter/powerless
