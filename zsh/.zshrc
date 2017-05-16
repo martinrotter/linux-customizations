@@ -8,8 +8,8 @@ if [[ "$(uname -o)" != "Cygwin" ]]; then
   xset -dpms
 fi
 
-# Terminix fix.
-if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
+# Tilix fix.
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
