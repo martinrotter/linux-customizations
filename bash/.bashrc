@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Turn off screen blanking on Linux.
-if [[ ("$(uname -o)" != "Cygwin") || (-n "$SSH_CLIENT") || (-n "$SSH_TTY") ]]; then
+if [[ ("$(uname -o)" != "Cygwin") && !(-n "$SSH_CLIENT") && !(-n "$SSH_TTY") ]]; then
   xset s 0 0
   xset -dpms
 fi
@@ -17,7 +17,6 @@ if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 # Exports.
-[ "which ruby" ] && export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export EDITOR="/usr/bin/micro"
 export GREP_COLOR="1;33"
 export LESS="-R"
@@ -25,8 +24,6 @@ export LS_COLORS="rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 export HISTCONTROL=ignoreboth:erasedups
 export SAL_USE_VCLPLUGIN="gtk"        # For LibreOffice gui.
-
-PATH="$PATH:$HOME:$GEM_HOME"
 
 # General aliases.
 alias weather='curl http://wttr.in/Olomouc'
