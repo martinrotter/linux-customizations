@@ -4,4 +4,4 @@
   
 [submodule "powerbash"]
 	path = powerbash
-	url = https://github.com/martinrotter/powerbash
+	url = https://github.com/martinrotter/powerbash.git
