@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Turn off screen blanking on Linux.
-if [[ "$(uname -o)" != "Cygwin" ]]; then
+if [[ ("$(uname -o)" != "Cygwin") || (-n "$SSH_CLIENT") || (-n "$SSH_TTY") ]]; then
   xset s 0 0
   xset -dpms
 fi
@@ -17,7 +17,7 @@ if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 # Exports.
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+[ "which ruby" ] && export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export EDITOR="/usr/bin/micro"
 export GREP_COLOR="1;33"
 export LESS="-R"
