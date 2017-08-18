@@ -23,8 +23,13 @@ This is simple prompt which shows:
 * working directory,
 * result code of previous command,
 * current Git branch (if any),
-* dirty state of Git branch (if any),
-* some specific situations are shown with special color (like error in previous command).
+* dirty state of Git branch (if any).
+
+There is `utilities.bash` script which contains some extra goodies like directory stack operation accessible via aliases or case insensitive completions. Directory stack shortucts are:
+
+* `s` - swaps to most recent directories in dirstack,
+* `p` - pops mos recent directory from dirstack,
+* `d` - displays directory stack with interactive selection.
 
 ## Installation.
 1. Clone this repo into standalone folder: `git clone https://github.com/martinrotter/powerbash.git powerbash`.
