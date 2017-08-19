@@ -2,11 +2,13 @@
 ## skunkos .zshrc <rotter.martinos(at)gmail.com>
 ##
 
-if [[ "$(uname -o)" != "Cygwin" ]]; then
-  # Turn off screen blanking on Linux.
+# Turn off screen blanking on Linux.
+if [[ ("$(uname -o)" != "Cygwin") && !(-n "$SSH_CLIENT") && !(-n "$SSH_TTY") ]]; then
   xset s 0 0
   xset -dpms
-else
+fi
+
+if [[ "$(uname -o)" == "Cygwin" ]]; then
   PATH="/cygdrive/c/Program Files (x86)/Microsoft Visual Studio 12.0/VC/bin/":"/cygdrive/c/Qt/5.7/msvc2013/bin/":$PATH
 fi
 
@@ -16,22 +18,12 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 # Exports.
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export WINEARCH=win32
-export EDITOR="/usr/bin/nano"
+export EDITOR="/usr/bin/micro"
 export GREP_COLOR="1;33"
 export LESS="-R"
 export LS_COLORS="rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:";
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 export SAL_USE_VCLPLUGIN="gtk"        # For LibreOffice gui.
-
-PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin/
-
-
-
-# Load powerless.
-source ~/.martin/powerless/powerless.zsh
-source ~/.martin/powerless/utilities.zsh
 
 # History.
 HISTFILE=${HOME}/.martin/zsh/.zsh_history
@@ -44,17 +36,16 @@ SAVEHIST=2000
 
 # Aliases.
 alias weather='curl http://wttr.in/Olomouc'
-alias top='top -o %MEM'
 alias more='less'
 alias df='df -h'
 alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify -A'
 alias valgrind-profiler='valgrind --tool=callgrind'
 alias ssh-start='eval $(ssh-agent) && ssh-add'
-alias virtualbox-run='sudo modprobe vboxdrv vboxnetadp vboxnetflt vboxpci'
 alias screenshot='echo "Waiting 2 seconds..." && sleep 2 && import -window root ./screenshot.png'
 alias mount-encfs='encfs $HOME/Dropbox/martin/ $HOME/.martin/encrypted/'
+alias tally='sudo pam_tally2'
+alias ssh-ips='journalctl -u sshd | grep "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" -o | sort -u'
 
 # Pacman aliases.
 alias pac-upg='sudo pacman -Syu'       # Synchronize with repositories before upgrading
@@ -117,3 +108,7 @@ pac-unowned() {
   find /etc /opt /usr ! -name lost+found \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
   comm -23 "$fs" "$db"
 }
+
+# Load powerless.
+source ~/.martin/powerless/powerless.zsh
+source ~/.martin/powerless/utilities.zsh
