@@ -1,3 +1,7 @@
 [submodule "powerless"]
 	path = powerless
 	url = https://github.com/martinrotter/powerless
+  
+[submodule "powerbash"]
+	path = powerbash
+	url = https://github.com/martinrotter/powerbash.git
