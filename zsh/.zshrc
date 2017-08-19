@@ -6,6 +6,8 @@ if [[ "$(uname -o)" != "Cygwin" ]]; then
   # Turn off screen blanking on Linux.
   xset s 0 0
   xset -dpms
+else
+  PATH="/cygdrive/c/Program Files (x86)/Microsoft Visual Studio 12.0/VC/bin/":"/cygdrive/c/Qt/5.7/msvc2013/bin/":$PATH
 fi
 
 # Terminix fix.
@@ -24,6 +26,8 @@ export WORDCHARS='*?_[]~=&;!#$%^(){}'
 export SAL_USE_VCLPLUGIN="gtk"        # For LibreOffice gui.
 
 PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin/
+
+
 
 # Load powerless.
 source ~/.martin/powerless/powerless.zsh
