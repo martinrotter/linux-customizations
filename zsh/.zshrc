@@ -26,7 +26,7 @@ export WORDCHARS='*?_[]~=&;!#$%^(){}'
 export SAL_USE_VCLPLUGIN="gtk"        # For LibreOffice gui.
 
 # History.
-HISTFILE=${HOME}/.martin/zsh/.zsh_history
+HISTFILE=${HOME}/.zsh_history
 
 ## The maximum number of events stored in the internal history list.
 HISTSIZE=2000
@@ -73,25 +73,6 @@ alias aur-upg-devel='pacaur -Syua --devel --needed'
 play-youtube-dl() {
   youtube-dl $1 -o -| vlc -
 }
-
-# Dirstack.
-DIRSTACKFILE="$HOME/.martin/zsh/.dirstack"
-
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-  [[ -d $dirstack[1] ]] && cd $dirstack[1]
-fi
-
-chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
-
-DIRSTACKSIZE=20
-
-# Now you can use dirs -v to print the dirstack.
-# Use cd -<NUM> to go back to a visited folder.
-# You can use autocompletion after the dash.
-# This proves very handy if you are using the autocompletion menu.
 
 # Prints out files not owned by any package.
 pac-unowned() {
