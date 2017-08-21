@@ -14,7 +14,7 @@ fi
 
 # Tilix fix.
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  source /etc/profile.d/vte.sh
+  source "/etc/profile.d/vte.sh"
 fi
 
 # Exports.
@@ -26,7 +26,7 @@ export WORDCHARS='*?_[]~=&;!#$%^(){}'
 export SAL_USE_VCLPLUGIN="gtk"        # For LibreOffice gui.
 
 # History.
-HISTFILE=${HOME}/.zsh_history
+HISTFILE="${HOME}/.zhistory"
 
 ## The maximum number of events stored in the internal history list.
 HISTSIZE=2000
@@ -39,7 +39,7 @@ alias weather='curl http://wttr.in/Olomouc'
 alias more='less'
 alias df='df -h'
 alias grep='grep --colour=auto'
-alias ls='ls --color=auto --human-readable --group-directories-first --classify -A'
+alias ls='ls --color=auto --human-readable --group-directories-first --classify -lhA'
 alias valgrind-profiler='valgrind --tool=callgrind'
 alias ssh-start='eval $(ssh-agent) && ssh-add'
 alias screenshot='echo "Waiting 2 seconds..." && sleep 2 && import -window root ./screenshot.png'
