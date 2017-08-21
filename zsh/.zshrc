@@ -3,7 +3,7 @@
 ##
 
 # Turn off screen blanking on Linux.
-if [[ ("$(uname -o)" != "Cygwin") && !(-n "$SSH_CLIENT") && !(-n "$SSH_TTY") ]]; then
+if [[ ("$(uname -o)" != "Cygwin") && (! -n "$SSH_CLIENT") && (! -n "$SSH_TTY") ]]; then
   xset s 0 0
   xset -dpms
 fi
