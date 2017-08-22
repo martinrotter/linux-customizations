@@ -46,6 +46,7 @@ alias screenshot='echo "Waiting 2 seconds..." && sleep 2 && import -window root 
 alias mount-encfs='encfs $HOME/Dropbox/martin/ $HOME/.martin/encrypted/'
 alias tally='sudo pam_tally2'
 alias ssh-ips='journalctl -u sshd | grep "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" -o | sort -u'
+alias reload!='. ~/.zshrc'
 
 # Pacman aliases.
 alias pac-upg='sudo pacman -Syu'       # Synchronize with repositories before upgrading
