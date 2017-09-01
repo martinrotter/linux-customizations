@@ -92,5 +92,5 @@ pac-unowned() {
 }
 
 # Load powerless.
-source ~/.martin/powerless/powerless.zsh
-source ~/.martin/powerless/utilities.zsh
+source ~/.martin/powerless/powerless.zsh false
+source ~/.martin/powerless/utilities.zsh true
