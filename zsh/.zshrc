@@ -60,10 +60,10 @@ alias pac-sea='pacman -Ss'             # Search for package(s) in the repositori
 alias pac-inl='pacman -Qi'             # Display information about a given package in the local database
 alias pac-num="sudo pacman -Q|wc -l"   # Prints number of installed packages
 alias pac-lst='sudo pacman -Q'         # Lists all installed packages
-alias pac-lst-size="expac -H M '%m\t%n' | sort -h"			# List all packages with size
+alias pac-lst-size="expac -H M '%m\t%n' | sort -h"      # List all packages with size
 alias pac-clr='sudo pacman -Scc'       # Clears entire cache
 alias pac-orp='sudo pacman -Qt'        # Lists orphaned packages
-alias pac-which='pacman -Qo'		       # Checks which package holds file
+alias pac-which='pacman -Qo'           # Checks which package holds file
 
 # PACAUR aliases.
 alias aur-ins='pacaur -S'
