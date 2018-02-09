@@ -17,7 +17,7 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 # Exports.
-if [[ "$(uname -o)" == "Linux" ]]; then
+if [[ "$(uname -o)" == "GNU/Linux" ]]; then
   export EDITOR="/usr/bin/micro"
 else
   export EDITOR="/usr/bin/nano"
