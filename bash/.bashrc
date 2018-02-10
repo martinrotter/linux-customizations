@@ -12,9 +12,9 @@ if [[ ("$(uname -o)" != "Cygwin") && ("$(uname -o)" != "Msys") && !(-n "$SSH_CLI
 fi
 
 # Tilix fix.
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  source "/etc/profile.d/vte.sh"
-fi
+#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  #source "/etc/profile.d/vte.sh"
+#fi
 
 # Exports.
 if [[ "$(uname -o)" == "GNU/Linux" ]]; then
