@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Turn off screen blanking on Linux.
-if [[ ("$(uname -o)" == "GNU/Linux") && !(-z "$SSH_CLIENT") && !(-z "$SSH_TTY") ]]; then
+if [[ ("$(uname -o)" == "GNU/Linux") && (-z "$SSH_CLIENT") && (-z "$SSH_TTY") ]]; then
   xset s 0 0
   xset -dpms
 fi
