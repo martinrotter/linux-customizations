@@ -60,9 +60,9 @@ alias pac-orp='sudo pacman -Qt'        # Lists orphaned packages
 alias pac-which='pacman -Qo'           # Checks which package holds file
 
 # PACAUR aliases.
-alias aur-ins='pacaur -S'
-alias aur-upg='pacaur -Syu'
-alias aur-upg-devel='pacaur -Syua --devel --needed'
+alias aur-ins='pikaur -S'
+alias aur-upg='pikaur -Syu --edit'
+alias aur-upg-devel='pacaur -Syua --devel --edit'
 
 # Prints out files not owned by any package.
 pac-unowned() {
