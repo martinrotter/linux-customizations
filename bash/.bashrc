@@ -11,11 +11,6 @@ if [[ ("$(uname -o)" == "GNU/Linux") && (-z "$SSH_CLIENT") && (-z "$SSH_TTY") ]]
   xset -dpms
 fi
 
-# Tilix fix.
-#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  #source "/etc/profile.d/vte.sh"
-#fi
-
 # Exports.
 if [[ "$(uname -o)" == "GNU/Linux" ]]; then
   export EDITOR="/usr/bin/micro"
@@ -62,7 +57,7 @@ alias pac-which='pacman -Qo'           # Checks which package holds file
 # PACAUR aliases.
 alias aur-ins='pikaur -S'
 alias aur-upg='pikaur -Syu --edit'
-alias aur-upg-devel='pacaur -Syua --devel --edit'
+alias aur-upg-devel='pikaur -Syu --devel --edit'
 
 # Prints out files not owned by any package.
 pac-unowned() {
