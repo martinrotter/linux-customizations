@@ -73,3 +73,5 @@ pac-unowned() {
 # Load powerbash.
 source ~/.martin/powerbash/powerbash.bash
 source ~/.martin/powerbash/utilities.bash
+
+PROMPT_COMMAND+=';history -w'
